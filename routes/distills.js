@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const distilleryModel = require('../model/distilleries');
+const distilleryLocModel = require('../model/distillery_locations');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  let distilleries = distilleryModel.getAll().then(data => {
+  distilleryLocModel.getAll().then(data => {
     res.json(data);
   })
   .catch(error => {
