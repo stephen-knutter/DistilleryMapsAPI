@@ -1,0 +1,60 @@
+
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('distillery_locations').del()
+    .then(function () {
+      return Promise.all([
+        // Inserts seed entries
+        knex('distillery_locations').insert({id: 1, state: 'Alabama', abbr: 'AL'}),
+        knex('distillery_locations').insert({id: 2, state: 'Alaska', abbr: 'AK'}),
+        knex('distillery_locations').insert({id: 3, state: 'Arizona', abbr: 'AZ'}),
+        knex('distillery_locations').insert({id: 4, state: 'Arkansas', abbr: 'AR'}),
+        knex('distillery_locations').insert({id: 5, state: 'California', abbr: 'CA'}),
+        knex('distillery_locations').insert({id: 6, state: 'Colorado', abbr: 'CO'}),
+        knex('distillery_locations').insert({id: 7, state: 'Connecticut', abbr: 'CT'}),
+        knex('distillery_locations').insert({id: 8, state: 'Delaware', abbr: 'DE'}),
+        knex('distillery_locations').insert({id: 9, state: 'Florida', abbr: 'FL'}),
+        knex('distillery_locations').insert({id: 10, state: 'Georgia', abbr: 'GA'}),
+        knex('distillery_locations').insert({id: 11, state: 'Hawaii', abbr: 'HI'}),
+        knex('distillery_locations').insert({id: 12, state: 'Idaho', abbr: 'ID'}),
+        knex('distillery_locations').insert({id: 13, state: 'Illinois', abbr: 'IL'}),
+        knex('distillery_locations').insert({id: 14, state: 'Indiana', abbr: 'IN'}),
+        knex('distillery_locations').insert({id: 15, state: 'Iowa', abbr: 'IA'}),
+        knex('distillery_locations').insert({id: 16, state: 'Kansas', abbr: 'KS'}),
+        knex('distillery_locations').insert({id: 17, state: 'Kentucky', abbr: 'KY'}),
+        knex('distillery_locations').insert({id: 18, state: 'Louisiana', abbr: 'LA'}),
+        knex('distillery_locations').insert({id: 19, state: 'Maine', abbr: 'ME'}),
+        knex('distillery_locations').insert({id: 20, state: 'Maryland', abbr: 'MD'}),
+        knex('distillery_locations').insert({id: 21, state: 'Massachusetts', abbr: 'MA'}),
+        knex('distillery_locations').insert({id: 22, state: 'Michigan', abbr: 'MI'}),
+        knex('distillery_locations').insert({id: 23, state: 'Minnesota', abbr: 'MN'}),
+        knex('distillery_locations').insert({id: 24, state: 'Mississippi', abbr: 'MS'}),
+        knex('distillery_locations').insert({id: 25, state: 'Missouri', abbr: 'MO'}),
+        knex('distillery_locations').insert({id: 26, state: 'Montana', abbr: 'MT'}),
+        knex('distillery_locations').insert({id: 27, state: 'Nebraska', abbr: 'NE'}),
+        knex('distillery_locations').insert({id: 28, state: 'Nevada', abbr: 'NV'}),
+        knex('distillery_locations').insert({id: 29, state: 'New Hampshire', abbr: 'NH'}),
+        knex('distillery_locations').insert({id: 30, state: 'New Jersey', abbr: 'NJ'}),
+        knex('distillery_locations').insert({id: 31, state: 'New Mexico', abbr: 'NM'}),
+        knex('distillery_locations').insert({id: 32, state: 'New York', abbr: 'NY'}),
+        knex('distillery_locations').insert({id: 33, state: 'North Carolina', abbr: 'NC'}),
+        knex('distillery_locations').insert({id: 34, state: 'North Dakota', abbr: 'ND'}),
+        knex('distillery_locations').insert({id: 35, state: 'Ohio', abbr: 'OH'}),
+        knex('distillery_locations').insert({id: 36, state: 'Oklahoma', abbr: 'OK'}),
+        knex('distillery_locations').insert({id: 37, state: 'Oregon', abbr: 'OR'}),
+        knex('distillery_locations').insert({id: 38, state: 'Pennsylvania', abbr: 'PA'}),
+        knex('distillery_locations').insert({id: 39, state: 'Rhode Island', abbr: 'RI'}),
+        knex('distillery_locations').insert({id: 40, state: 'South Carolina', abbr: 'SC'}),
+        knex('distillery_locations').insert({id: 41, state: 'South Dakota', abbr: 'SD'}),
+        knex('distillery_locations').insert({id: 42, state: 'Tennessee', abbr: 'TN'}),
+        knex('distillery_locations').insert({id: 43, state: 'Texas', abbr: 'TX'}),
+        knex('distillery_locations').insert({id: 44, state: 'Utah', abbr: 'UT'}),
+        knex('distillery_locations').insert({id: 45, state: 'Vermont', abbr: 'VT'}),
+        knex('distillery_locations').insert({id: 46, state: 'Virginia', abbr: 'VA'}),
+        knex('distillery_locations').insert({id: 47, state: 'Washington', abbr: 'WA'}),
+        knex('distillery_locations').insert({id: 48, state: 'West Virginia', abbr: 'WV'}),
+        knex('distillery_locations').insert({id: 49, state: 'Wisconsin', abbr: 'WI'}),
+        knex('distillery_locations').insert({id: 50, state: 'Wyoming', abbr: 'WY'})
+      ]);
+    });
+};

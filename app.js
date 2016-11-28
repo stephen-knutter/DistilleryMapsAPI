@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const distills = require('./routes/distills');
 
 const app = express();
 
@@ -24,6 +25,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/distills', distills);
+
+// Website you wish to allow to connect
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+
+// Request methods you wish to allow
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+// Request headers you wish to allow
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+// Set to true if you need the website to include cookies in the requests sent
+// to the API (e.g. in case you use sessions)
+res.setHeader('Access-Control-Allow-Credentials', true);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -39,8 +54,8 @@ app.use((err, req, res, next) => {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).json({message: err.message});
+  // res.render('error');
 });
 
 module.exports = app;
