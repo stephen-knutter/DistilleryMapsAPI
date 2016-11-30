@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     t.string('password_digest');
     t.timestamp('created_at').notNullable().defaultTo(knex.fn.now());
     t.timestamp('updated_at').notNullable().defaultTo(knex.fn.now());
+    t.unique(['username', 'slug', 'email']);
   });
 };
 
