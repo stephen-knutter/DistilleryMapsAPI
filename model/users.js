@@ -51,6 +51,10 @@ query = {
     return knex('users').where('slug', userslug).first();
   },
 
+  getUserIdFromSlug: (userSlug) => {
+    return knex.select('id').from('users').where('slug', userSlug);
+  },
+
   checkPassword: (password, hash) => {
      return bcrypt.compareSync(password, hash);
   },

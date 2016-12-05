@@ -7,6 +7,10 @@ let query = {
 
   getDistillBySlug: (distillSlug) => {
     return knex('distilleries').where('slug', distillSlug);
+  },
+
+  getDistillIdFromSlug: (distillSlug) => {
+    return knex.select('id').from('distilleries').where('slug', distillSlug);
   }
 };
 

@@ -3,7 +3,6 @@ const router = express.Router();
 const distilleryLocModel = require('../model/distillery_locations');
 const distilleryStoreModel = require('../model/distillery_stores');
 
-/* GET home page. */
 router.get('/', (req, res, next) => {
   distilleryLocModel.getAll().then(data => {
     res.json(data);

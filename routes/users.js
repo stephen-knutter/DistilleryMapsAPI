@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const slug = require('slug');
 const validator = require('validator');
+const escape = require('escape-html');
 
 const jwt = require('jsonwebtoken');
 
@@ -165,9 +166,9 @@ router.post('/register', (req, res, next) => {
   let user = req.body.user;
   if (!user) res.status(500).send({error: {"Invalid": "no user set"}});
 
-  let username = user.username;
-  let email = user.email;
-  let password = user.password;
+  let username = escape(user.username);
+  let email = escape(user.email);
+  let password = escape(user.password);
 
   if (!username || !email || !password) {
     res.status(500).send({error: {"Blank": "username, email, or password"}});

@@ -10,6 +10,7 @@ const fileUpload = require('express-fileupload');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const distills = require('./routes/distills');
+const ratings = require('./routes/ratings');
 const cors = require('cors');
 
 const app = express();
@@ -34,6 +35,7 @@ app.use(fileUpload());
 app.use('/', index);
 app.use('/users', users);
 app.use('/distills', distills);
+app.use('/ratings', ratings);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
