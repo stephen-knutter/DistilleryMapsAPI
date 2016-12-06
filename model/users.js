@@ -44,11 +44,11 @@ query = {
   },
 
   getUserByEmail: (email) => {
-    return knex('users').where('email', email).first();
+    return knex('users').where('email', email);
   },
 
   getUserBySlug: (userslug) => {
-    return knex('users').where('slug', userslug).first();
+    return knex('users').where('slug', userslug);
   },
 
   getUserIdBySlug: (userslug) => {

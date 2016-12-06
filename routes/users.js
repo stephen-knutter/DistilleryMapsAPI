@@ -9,14 +9,17 @@ const escape = require('escape-html');
 
 const jwt = require('jsonwebtoken');
 
+const helpers = require('../model/helpers');
 const userModel = require('../model/users');
 
 router.get('/user', (req, res, next) => {
-  let rawToken = req.headers.authorization;
-  let theToken = rawToken.split(' ')[1];
-  let decoded = jwt.verify(theToken, process.env.SECRET);
-  if (decoded) {
-    res.json(decoded);
+  let authorized = req.headers.authorization;
+  if (authorized) {
+    let theToken = authorized.split(' ')[1];
+    let decoded = jwt.verify(theToken, process.env.SECRET);
+    if (decoded) {
+      res.json(decoded);
+    }
   }
 });
 
@@ -43,84 +46,86 @@ router.get('/favorites/:userSlug', (req, res, next) => {
 });
 
 router.post('/photo', (req, res, next) => {
-  let rawToken = req.headers.authorization;
-  let theToken = rawToken.split(' ')[1];
-  let decoded = jwt.verify(theToken, process.env.SECRET);
-  if (decoded) {
-    let user = decoded.user;
-    let photoFile = req.files.photo;
-    let photoName = photoFile.name;
-    let mimetype = photoFile.mimetype;
+  let authorized = req.headers.authorization;
+  if (authorized) {
+    let decoded = helpers.getDecodedTokenFromToken(authorized);
+    if (decoded) {
+      let user = decoded.user;
+      let photoFile = req.files.photo;
+      let photoName = photoFile.name;
+      let mimetype = photoFile.mimetype;
 
-    if (mimetype === 'image/png' ||
-        mimetype === 'image/PNG' ||
-        mimetype === 'image/jpg' ||
-        mimetype === 'image/JPG' ||
-        mimetype === 'image/jpeg' ||
-        mimetype === 'image/JPEG' ||
-        mimetype === 'image/gif' ||
-        mimetype === 'image/GIF') {
-      let date = Date.now();
-      var extension;
-      switch(mimetype) {
-        case 'image/png':
-        case 'image/PNG':
-          extension = '.png';
-          break;
+      if (mimetype === 'image/png' ||
+          mimetype === 'image/PNG' ||
+          mimetype === 'image/jpg' ||
+          mimetype === 'image/JPG' ||
+          mimetype === 'image/jpeg' ||
+          mimetype === 'image/JPEG' ||
+          mimetype === 'image/gif' ||
+          mimetype === 'image/GIF') {
+        let date = Date.now();
+        var extension;
+        switch(mimetype) {
+          case 'image/png':
+          case 'image/PNG':
+            extension = '.png';
+            break;
 
-        case 'image/jpg':
-        case 'image/JPG':
-          extension = '.jpg';
-          break;
+          case 'image/jpg':
+          case 'image/JPG':
+            extension = '.jpg';
+            break;
 
-        case 'image/jpeg':
-        case 'image/JPEG':
-          extension = '.jpeg';
-          break;
+          case 'image/jpeg':
+          case 'image/JPEG':
+            extension = '.jpeg';
+            break;
 
-        case 'image/gif':
-        case 'image/GIF':
-          extension = '.gif';
-          break;
-      }
-
-      let newFilename = date + '-' + 'distillery-maps' + extension;
-
-      let filePath = __dirname + '/../public/images/users/'+user.id+'/';
-
-      if (!fs.existsSync(filePath)) {
-        fs.mkdirSync(filePath);
-      }
-
-      let fullFilepath = filePath + newFilename;
-      photoFile.mv(fullFilepath, (err) => {
-        if (err) {
-          res.status(500).send({error: {"Ooops": "something went wrong"}});
-        } else {
-          userModel.updatePhoto(user.id, newFilename)
-            .then((data) => {
-              user.profile_pic = newFilename;
-
-              let today = new Date();
-              let exp = new Date(today);
-              exp.setDate(today.getDate() + 60);
-              let token = jwt.sign({
-                user: user,
-                exp: parseInt(exp.getTime() / 1000)
-              }, process.env.SECRET);
-
-              res.json({user: user, token: token});
-            })
-            .catch((err) => {
-              res.status(500).send({error: {"Ooops": "something went wrong"}});
-            })
+          case 'image/gif':
+          case 'image/GIF':
+            extension = '.gif';
+            break;
         }
-      })
+
+        let newFilename = date + '-' + 'distillery-maps' + extension;
+
+        let filePath = __dirname + '/../public/images/users/'+user.id+'/';
+
+        if (!fs.existsSync(filePath)) {
+          fs.mkdirSync(filePath);
+        }
+
+        let fullFilepath = filePath + newFilename;
+        photoFile.mv(fullFilepath, (err) => {
+          if (err) {
+            res.status(500).send({error: {"Ooops": "something went wrong"}});
+          } else {
+            userModel.updatePhoto(user.id, newFilename)
+              .then((data) => {
+                user.profile_pic = newFilename;
+
+                let token = helpers.signNewToken(user);
+
+                if (token) {
+                  res.json({user: user, token: token});
+                } else {
+                  res.status(500).send({error: {"Ooops": "something went wrong"}});
+                }
+
+              })
+              .catch((err) => {
+                res.status(500).send({error: {"Ooops": "something went wrong"}});
+              })
+          }
+        })
+      } else {
+        res.status(500).send({error: {"Invalid": "file type, must be jpg, png or gif"}});
+      }
     } else {
-      res.status(500).send({error: {"Invalid": "file type, must be jpg, png or gif"}});
+      res.status(500).send({error: {"Invalid": "must login to change profile"}});
     }
   } else {
-    res.status(500).send({erro: {"Invalid": "must login to change profile"}});
+    res.status(500).send({error: {"Invalid": "must login to change profile"}});
   }
 })
 
@@ -139,7 +144,9 @@ router.post('/login', (req, res, next) => {
   userModel.getUserByEmail(email)
     .then((user) => {
       if (Object.keys(user).length > 0) {
-        let theUser = user;
+        let theUser = user[0];
+        console.log('user: ', theUser);
+        console.log('password: ', password, 'hash: ', theUser.password_digest);
         let passwordCheck = userModel.checkPassword(password, theUser.password_digest);
         if (passwordCheck) {
           return theUser;
@@ -155,14 +162,7 @@ router.post('/login', (req, res, next) => {
     })
     .then((theUser) => {
       if (theUser) {
-        let today = new Date();
-        let exp = new Date(today);
-        exp.setDate(today.getDate() + 60);
-
-        let token = jwt.sign({
-          user: theUser,
-          exp: parseInt(exp.getTime() / 1000)
-        }, process.env.SECRET);
+        let token = helpers.signNewToken(theUser);
 
         if (token) {
           theUser.token = token;
@@ -222,7 +222,6 @@ router.post('/register', (req, res, next) => {
     .then(() => {
       if (Object.keys(checks).length > 0) {
         res.status(500).send({error: checks});
-        return;
       } else {
         userModel.insertUser(username, userSlug, email, password)
           .then((response) => {
@@ -231,14 +230,8 @@ router.post('/register', (req, res, next) => {
           .then((newUserID) => {
             userModel.getUserById(newUserID).then((user) => {
               let theUser = user[0];
-              let today = new Date();
-              let exp = new Date(today);
-              exp.setDate(today.getDate() + 60);
 
-              let token = jwt.sign({
-                user: theUser,
-                exp: parseInt(exp.getTime() / 1000)
-              }, process.env.SECRET);
+              let token = helpers.signNewToken(theUser)
 
               if (token) {
                 theUser.token = token;
@@ -254,86 +247,86 @@ router.post('/register', (req, res, next) => {
 });
 
 router.put('/update', (req, res, next) => {
-  let rawToken = req.headers.authorization;
-  let theToken = rawToken.split(' ')[1];
-  let decoded = jwt.verify(theToken, process.env.SECRET);
+  let authorization = req.headers.authorization;
 
-  if (decoded) {
-    let user = decoded.user;
+  if (authorization) {
+    let decoded = helpers.getDecodedTokenFromToken(authorization);
 
-    let updates = req.body;
-    let username = updates.username;
-    let email = updates.email;
-    let password = updates.password;
+    if (decoded) {
+      let user = decoded.user;
 
-    if (!username || !email) {
-      res.status(500).send({error: {"Username": "or email is blank"}});
-    } else {
-      let checks = {};
-      if (username.length < 5 || username.length > 30) {
-        checks.Username = "must be between 5 and 30 characters";
-      }
+      let updates = req.body;
+      let username = updates.username;
+      let email = updates.email;
+      let password = updates.password;
 
-      if (!validator.isEmail(email)) {
-        checks.Email = "is not valid";
-      }
-
-      if (Object.keys(checks).length > 0) {
-        res.status(500).send({error: checks});
+      if (!username || !email) {
+        res.status(500).send({error: {"Username": "or email is blank"}});
       } else {
-        let userSlug = slug(username);
+        let checks = {};
+        if (username.length < 5 || username.length > 30) {
+          checks.Username = "must be between 5 and 30 characters";
+        }
 
-        if (password) {
-          userModel.updateUserWithPassword(user.id, username, userSlug, email, password)
-            .then((data) => {
-              return data;
-            })
-            .then((data) => {
-              return userModel.getUserById(user.id);
-            })
-            .then((data) => {
-              let user = data[0];
-              let today = new Date();
-              let exp = new Date(today);
-              exp.setDate(today.getDate() + 60);
-              let token = jwt.sign({
-                user: user,
-                exp: parseInt(exp.getTime() / 1000)
-              }, process.env.SECRET);
+        if (!validator.isEmail(email)) {
+          checks.Email = "is not valid";
+        }
 
-              res.json({user: user, token: token});
-
-            })
-            .catch((err) => {
-              res.statsu(500).send({error: {"Ooops": "something went wrong"}});
-            })
+        if (Object.keys(checks).length > 0) {
+          res.status(500).send({error: checks});
         } else {
-          userModel.updateUserWithoutPassword(user.id, username, userSlug, email)
-            .then((data) => {
-              return data;
-            })
-            .then((data) => {
-              return userModel.getUserById(user.id);
-            })
-            .then((data) => {
-              let user = data[0];
-              let today = new Date();
-              let exp = new Date(today);
-              exp.setDate(today.getDate() + 60);
-              let token = jwt.sign({
-                user: user,
-                exp: parseInt(exp.getTime() / 1000)
-              }, process.env.SECRET);
+          let userSlug = slug(username);
 
-              res.json({user: user, token: token});
-              return;
-            })
-            .catch((err) => {
-              res.status(500).send({error: {"Ooops": "something went wrong"}});
-            })
+          if (password) {
+            userModel.updateUserWithPassword(user.id, username, userSlug, email, password)
+              .then((data) => {
+                return data;
+              })
+              .then((data) => {
+                return userModel.getUserById(user.id);
+              })
+              .then((data) => {
+                let user = data[0];
+
+                let token = helpers.signNewToken(user);
+
+                if (token) {
+                  res.json({user: user, token: token});
+                } else {
+                  res.status(500).send({error: {"Ooops": "something wend wrong"}});
+                }
+              })
+              .catch((err) => {
+                res.status(500).send({error: {"Ooops": "something went wrong"}});
+              })
+          } else {
+            userModel.updateUserWithoutPassword(user.id, username, userSlug, email)
+              .then((data) => {
+                return data;
+              })
+              .then((data) => {
+                return userModel.getUserById(user.id);
+              })
+              .then((data) => {
+                let user = data[0];
+
+                let token = helpers.signNewToken(user);
+
+                if (token) {
+                  res.json({user: user, token: token});
+                } else {
+                  res.status(500).send({error: {"Ooops": "something went wrong"}});
+                }
+              })
+              .catch((err) => {
+                res.status(500).send({error: {"Ooops": "something went wrong"}});
+              })
+          }
         }
       }
     }
+
   }
 });
+
 module.exports = router;

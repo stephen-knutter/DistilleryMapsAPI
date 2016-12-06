@@ -1,3 +1,5 @@
+'use-strict';
+
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -14,8 +16,6 @@ const ratings = require('./routes/ratings');
 const cors = require('cors');
 
 const app = express();
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
