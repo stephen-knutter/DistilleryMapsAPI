@@ -21,7 +21,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy American, Small Batch Gin, Small Batch Vodka, Single Barrel Dark Rum, Rocky Mountain Blackberry, Peach Whiskey, Apple Whiskey, New York Sour Apple Liqueur, Rocky Mountain Blackberry, Three Pins Alpine, French Coffee, New England Cranberry, Maryland Style Rye Whiskey, Tennessee Style Whiskey',
           region: 'Denver',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 2,
@@ -38,7 +39,8 @@ exports.seed = function(knex, Promise) {
           products: 'Colorado Whiskey',
           region: 'Denver',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 3,
@@ -55,7 +57,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka',
           region: 'Denver',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 4,
@@ -72,7 +75,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Denver',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 5,
@@ -89,7 +93,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka from Grain and Cane, Pepper Vodka, White Rum, Gold Rum, Vanilla Rum, Double Diamond Whiskey, Wine Barrel Aged Rum',
           region: 'Centennial',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 6,
@@ -106,7 +111,8 @@ exports.seed = function(knex, Promise) {
           products: 'Roundhouse Gin, Roundhouse coffee liqueur',
           region: 'Boulder',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 7,
@@ -123,7 +129,8 @@ exports.seed = function(knex, Promise) {
           products: '303 Vodka',
           region: 'Boulder',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 8,
@@ -140,7 +147,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Niwot',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 9,
@@ -157,7 +165,8 @@ exports.seed = function(knex, Promise) {
           products: 'Wine-barrel aged rum',
           region: 'Longmont',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 10,
@@ -174,7 +183,8 @@ exports.seed = function(knex, Promise) {
           products: 'Black Canyon Whiskey',
           region: 'Longmont',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 11,
@@ -191,7 +201,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka',
           region: 'Greeley',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 12,
@@ -208,7 +219,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Loveland',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 13,
@@ -226,7 +238,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Loveland',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 14,
@@ -243,7 +256,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rye whiskey, Oat whiskey, Millet whiskey, Kamut whiskey, Bourbon',
           region: 'Fort Collins',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 15,
@@ -260,7 +274,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Fort Collins',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 16,
@@ -277,7 +292,8 @@ exports.seed = function(knex, Promise) {
           products: 'Colorado Blue Vodka, Colorado Crystal Vodka, BOHICA Vodka, Rocky Mountain Moonshine, Blackjack Bourbon Whiskey, Colorado Fog Gin, Blackbeard Rums',
           region: 'Larkspur',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 17,
@@ -294,7 +310,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Colorado Springs',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 18,
@@ -311,7 +328,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Salida',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 19,
@@ -328,7 +346,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Salida',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 20,
@@ -345,7 +364,8 @@ exports.seed = function(knex, Promise) {
           products: 'Breckenridge Vodka, Breck Bourbon, Single Malt Whiskey, Dark Rum, Alpine Liquer, Infused Vodkas, Bitters, White Dog, Winter Schnapps',
           region: 'Buena Vista',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 21,
@@ -362,7 +382,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Breckenridge',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 22,
@@ -379,7 +400,8 @@ exports.seed = function(knex, Promise) {
           products: 'Breckenridge Vodka, Breck Bourbon, Single Malt Whiskey, Dark Rum, Alpine Liquer, Infused Vodkas, Bitters, White Dog, Winter Schnapps',
           region: 'Breckenridge',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 23,
@@ -396,7 +418,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka, Gin, Whiskey, Bourbon',
           region: 'Basalt',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 24,
@@ -413,7 +436,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy, Caprock Organic Gin, Vodka, Peak Organic Eau De Vie',
           region: 'Hotchkiss',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 25,
@@ -430,7 +454,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Agave Spirits Tequila, Brandy',
           region: 'Cedaredge',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
         knex('distilleries').insert({
           id: 26,
@@ -447,7 +472,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy ack, Jenny Pear, Peach and Plum Brandies, Bourbon',
           region: 'Palisade',
           hood: 'dtwn',
-          state: 'CO'
+          state: 'CO',
+          state_full: 'Colorado'
         }),
 
         //NEW MEXICO
@@ -466,7 +492,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Apple Brandy, Unaged Whiskey, Eau De Vie',
           region: 'Santa Fe',
           hood: 'dtwn',
-          state: 'NM'
+          state: 'NM',
+          state_full: 'New-Mexico'
         }),
         knex('distilleries').insert({
           id: 28,
@@ -483,7 +510,8 @@ exports.seed = function(knex, Promise) {
           products: 'Blue Corn Vodka, Brandy',
           region: 'Los Alamos',
           hood: 'dtwn',
-          state: 'NM'
+          state: 'NM',
+          state_full: 'New-Mexico'
         }),
 
         //UTAH
@@ -502,7 +530,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rendezvous Rye Whiskey, Rocky Mountain Rye, Vodka 7000, Oak Whiskey, Peach Whiskey',
           region: 'Park City',
           hood: 'dtwn',
-          state: 'UT'
+          state: 'UT',
+          state_full: 'Utah'
         }),
         knex('distilleries').insert({
           id: 30,
@@ -519,7 +548,8 @@ exports.seed = function(knex, Promise) {
           products: 'Herbal Liqueur, Rum, Gin',
           region: 'Odgen',
           hood: 'dtwn',
-          state: 'UT'
+          state: 'UT',
+          state_full: 'Utah'
         }),
 
         //ARIZONA
@@ -538,7 +568,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey made with a copper pot still',
           region: 'Tucson',
           hood: 'dtwn',
-          state: 'AZ'
+          state: 'AZ',
+          state_full: 'Arizona'
         }),
         knex('distilleries').insert({
           id: 32,
@@ -555,7 +586,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Tempe',
           hood: 'dtwn',
-          state: 'AZ'
+          state: 'AZ',
+          state_full: 'Arizona'
         }),
         knex('distilleries').insert({
           id: 33,
@@ -572,7 +604,8 @@ exports.seed = function(knex, Promise) {
           products: 'Arroyo Vodka, BB\'s Apple Pye',
           region: 'Phoenix',
           hood: 'dtwn',
-          state: 'AZ'
+          state: 'AZ',
+          state_full: 'Arizona'
         }),
         knex('distilleries').insert({
           id: 34,
@@ -589,7 +622,8 @@ exports.seed = function(knex, Promise) {
           products: 'Gold Miner Rum, Gold Miner Dark Rum, Gold Miner Agave Rum, Gold Miner Vodka',
           region: 'Kingman',
           hood: 'dtwn',
-          state: 'AZ'
+          state: 'AZ',
+          state_full: 'Arizona'
         }),
 
         //NEVADA
@@ -608,7 +642,8 @@ exports.seed = function(knex, Promise) {
           products: ' Vodka, gin, rum, Whiskey, Bourbon, grappa fruit distillates, old-fashed fruit distillates',
           region: 'Henderson',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
         knex('distilleries').insert({
           id: 36,
@@ -625,7 +660,8 @@ exports.seed = function(knex, Promise) {
           products: ' Vodka, gin, rum, Whiskey, Bourbon, grappa fruit distillates, old-fashed fruit distillates',
           region: 'Henderson',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
         knex('distilleries').insert({
           id: 37,
@@ -642,7 +678,8 @@ exports.seed = function(knex, Promise) {
           products: ' Vodka, gin, rum, Whiskey, Bourbon, grappa fruit distillates, old-fashed fruit distillates',
           region: 'Henderson',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
         knex('distilleries').insert({
           id: 38,
@@ -659,7 +696,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka',
           region: 'Las Vegas',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
         knex('distilleries').insert({
           id: 39,
@@ -676,7 +714,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy, Grappa, Vodka',
           region: 'Fallon',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
         knex('distilleries').insert({
           id: 40,
@@ -693,7 +732,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Incline Village',
           hood: 'dtwn',
-          state: 'NV'
+          state: 'NV',
+          state_full: 'Nevada'
         }),
 
         //CALIFORNIA
@@ -712,7 +752,8 @@ exports.seed = function(knex, Promise) {
           products: 'White Whiskey',
           region: 'San Diego',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 42,
@@ -729,7 +770,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Rum, Gin',
           region: 'San Diego',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 43,
@@ -746,7 +788,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka, Lemon Flavored Vodka, Lime Flavored Vodka, Orange Flavored Vodka, White Rum, Aged Rum',
           region: 'Palm Desert',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 44,
@@ -763,7 +806,8 @@ exports.seed = function(knex, Promise) {
           products: 'Blue Agave Spirits',
           region: 'Temecula',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 45,
@@ -780,7 +824,8 @@ exports.seed = function(knex, Promise) {
           products: 'Vodka, Arak, Brandy',
           region: 'Santa Ana',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 46,
@@ -797,7 +842,8 @@ exports.seed = function(knex, Promise) {
           products: 'Peregrine Rock Single Malt Whiskey, Royal Hawaiian Pineapple Rum and Brandy, California Gold Agave, Raspberry Regal Wine',
           region: 'Irvingdale',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 47,
@@ -814,7 +860,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Rum',
           region: 'Pasadena',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 48,
@@ -831,7 +878,8 @@ exports.seed = function(knex, Promise) {
           products: 'Bar Keep bitters, Crusoe rum, Fruitlab liqueur, Grand Poppy Liqueur, Ixa tequila, Slow Hand whiskey, Tru gin, Tru vodka',
           region: 'Los Angeles',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 49,
@@ -848,7 +896,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'Santa Barbara',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 50,
@@ -865,7 +914,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'San Luis Obispo',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 51,
@@ -882,7 +932,8 @@ exports.seed = function(knex, Promise) {
           products: 'California Style Pisco, Espirito Biodynamic Brandy, Farmhouse Vodka, Farmhouse Curacao',
           region: 'Fresno',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 52,
@@ -899,7 +950,8 @@ exports.seed = function(knex, Promise) {
           products: 'Moonshine, Whiskey',
           region: 'Salinas',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 53,
@@ -916,7 +968,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rare Alambic Brandy, XO Alambic Brandy, Apple Brandy, Heritage Blend Brandy',
           region: 'Soquel',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 54,
@@ -933,7 +986,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Vodka, Moonshine from grain',
           region: 'Modesto',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 55,
@@ -950,7 +1004,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy',
           region: 'Modesto',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 56,
@@ -967,7 +1022,8 @@ exports.seed = function(knex, Promise) {
           products: 'Sgt Classick Gold and Silver Hawaiian Rums, PurePear Brandy, Classick Grappadi Cabernet, Classick Original American Bierschnaps, DH Krahn Gin, U4RIK Vodka',
           region: 'Mountain View',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 57,
@@ -984,7 +1040,8 @@ exports.seed = function(knex, Promise) {
           products: ' Blade Gin, Rusty Blade Barrel Aged Gin, Poire Williams, O\'Henry Barrel Aged Peach Eau-De-Vie, Indian Blood Peach Eau-De-Vie, Kuchan Black Walnut Liqueur, La Sorciere Absinthe Verte,. Kuchan Alambic Brandy, Rye Whiskey, Rum',
           region: 'Belmont',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 58,
@@ -1001,7 +1058,8 @@ exports.seed = function(knex, Promise) {
           products: 'St George Single Malt Whiskey, St George Absinthe Verte, St George Botanivore, Terroir, Dry Rye Gin, Agua Libre Rum, Aqua Perfecta Eaux de Vie, Breaking & Entering Bourbon, Hangar One Vodka, Firelit Coffee Liqueur, Qi Tea Liqueurs',
           region: 'Alameda',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 59,
@@ -1018,7 +1076,8 @@ exports.seed = function(knex, Promise) {
           products: 'Gin',
           region: 'San Francisco',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 60,
@@ -1035,7 +1094,8 @@ exports.seed = function(knex, Promise) {
           products: 'Old Potrero 18th Century Style Whiskey, Old Potrero Straight Rye Whiskey, Old Potrero Hotalings Whiskey, Junipero Gin, Genevieve Gin',
           region: 'San Francisco',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 61,
@@ -1052,7 +1112,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rum',
           region: 'Richmond',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 62,
@@ -1069,7 +1130,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey',
           region: 'El Dorado Hills',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 63,
@@ -1086,7 +1148,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rum, Gin, Absinthe ,Vodka, Fruit Brandy',
           region: 'Lake Tahoe',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 64,
@@ -1103,7 +1166,8 @@ exports.seed = function(knex, Promise) {
           products: 'Baijiu, Soju, Vodka, Bourbon',
           region: 'Yuba City',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 65,
@@ -1120,7 +1184,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy',
           region: 'Hopland',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 66,
@@ -1137,7 +1202,8 @@ exports.seed = function(knex, Promise) {
           products: 'Germain-Robin Absinthe Superiure, Crispin\'s Rose Liqueur',
           region: 'Ukiah',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 67,
@@ -1154,7 +1220,8 @@ exports.seed = function(knex, Promise) {
           products: 'Pear Eau De Vie, Fruit Brandy',
           region: 'Calpella',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 68,
@@ -1171,7 +1238,8 @@ exports.seed = function(knex, Promise) {
           products: 'Select Barrel XO, Single Barrel Pinot Noir, Colombard grape brandies, Anno Domini, Coast Road Reserve, Craft Method Brandy',
           region: 'Redwood Valley',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
         knex('distilleries').insert({
           id: 69,
@@ -1188,7 +1256,8 @@ exports.seed = function(knex, Promise) {
           products: 'Select Barrel XO, Single Barrel Pinot Noir, Colombard grape brandies, Anno Domini, Coast Road Reserve, Craft Method Brandy',
           region: 'Redwood Valley',
           hood: 'dtwn',
-          state: 'CA'
+          state: 'CA',
+          state_full: 'California'
         }),
 
         //OREGON
@@ -1208,7 +1277,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy, Whiskey, Rum, Absinthe, Brandy',
           region: 'Medford',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 71,
@@ -1225,7 +1295,8 @@ exports.seed = function(knex, Promise) {
           products: 'Brandy, Grappa, Pear E De Vie, Blackberry Liqueur',
           region: 'Brookings',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 72,
@@ -1242,7 +1313,8 @@ exports.seed = function(knex, Promise) {
           products: 'Crater Lake Vodka, Cascade Mountain Gin, Cofia Hazelnut Espresso Vodka, Mazama Infused Pepper Vodka, Diamond 100 Vodka',
           region: 'Bend',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 73,
@@ -1259,7 +1331,8 @@ exports.seed = function(knex, Promise) {
           products: 'Oregon Spirit Vodka, Black Mariah Cordial Merrylegs Gin',
           region: 'Bend',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 74,
@@ -1276,7 +1349,8 @@ exports.seed = function(knex, Promise) {
           products: 'Rum, Whiskey, Gin',
           region: 'Newport',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 75,
@@ -1293,7 +1367,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Vodka, Grappa, Gin',
           region: 'Sheridan',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 76,
@@ -1310,7 +1385,8 @@ exports.seed = function(knex, Promise) {
           products: 'Tarragon Infused Vodka, Saffron Infused Vodka',
           region: 'Dundee',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 77,
@@ -1327,7 +1403,8 @@ exports.seed = function(knex, Promise) {
           products: 'Tarragon Infused Vodka, Saffron Infused Vodka',
           region: 'Portland',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 78,
@@ -1344,7 +1421,8 @@ exports.seed = function(knex, Promise) {
           products: 'Pear Brandy, Apple Brandy, Grappa, Ouzo, Rye Spirits, Coffee Liqueur',
           region: 'Portland',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 79,
@@ -1361,7 +1439,8 @@ exports.seed = function(knex, Promise) {
           products: 'Williams Pear, Barrel Aged Eau De Vie, Oregon Single Malt Whiskey, Brandy',
           region: 'Portland',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 80,
@@ -1378,7 +1457,8 @@ exports.seed = function(knex, Promise) {
           products: 'Whiskey, Vintners American Distilled Gin, Brandy',
           region: 'Troutdale',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
         knex('distilleries').insert({
           id: 81,
@@ -1395,7 +1475,8 @@ exports.seed = function(knex, Promise) {
           products: 'Liquid Vodka, Mint flavored vodka',
           region: 'Warren',
           hood: 'dtwn',
-          state: 'OR'
+          state: 'OR',
+          state_full: 'Oregon'
         }),
 
         //WASHINGTON

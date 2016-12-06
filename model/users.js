@@ -51,8 +51,19 @@ query = {
     return knex('users').where('slug', userslug).first();
   },
 
+  getUserIdBySlug: (userslug) => {
+    return knex('users').select('id').where('slug', userslug);
+  },
+
+  getUserFavoritesById: (userID) => {
+    return knex.raw(
+      `SELECT * FROM distilleries
+      WHERE distilleries.id IN (SELECT distill_id FROM favorites WHERE user_id=${userID})`
+    )
+  },
+
   getUserIdFromSlug: (userSlug) => {
-    return knex.select('id').from('users').where('slug', userSlug);
+    return knex('users').select('id').where('slug', userSlug);
   },
 
   checkPassword: (password, hash) => {

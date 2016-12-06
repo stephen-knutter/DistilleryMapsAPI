@@ -314,7 +314,7 @@ exports.seed = function(knex, Promise) {
             id: 37,
             state: 'Oregon',
             abbr: 'OR',
-            slug: 'Oregon',
+            slug: 'oregon',
             lat: 45.523116,
             lng: -122.677782,
             country_code: 'US'}),

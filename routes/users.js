@@ -28,6 +28,20 @@ router.get('/profile/:userslug', (req, res, next) => {
     });
 });
 
+router.get('/favorites/:userSlug', (req, res, next) => {
+  let userslug = req.params.userSlug;
+  userModel.getUserIdBySlug(userslug)
+    .then((response) => {
+      return response[0].id;
+    })
+    .then((userID) => {
+      return userModel.getUserFavoritesById(userID);
+    })
+    .then((favorites) => {
+      res.json({favorites: favorites.rows});
+    });
+});
+
 router.post('/photo', (req, res, next) => {
   let rawToken = req.headers.authorization;
   let theToken = rawToken.split(' ')[1];
@@ -180,7 +194,7 @@ router.post('/register', (req, res, next) => {
     return;
   }
 
-  let userSlug = slug(username);
+  let userSlug = slug(username.toLowerCase());
 
   if (!validator.isEmail(email)) {
     res.status(500).send({error: {"Email": "is not valid"}});
@@ -279,7 +293,6 @@ router.put('/update', (req, res, next) => {
             })
             .then((data) => {
               let user = data[0];
-              console.log('slug: ', user);
               let today = new Date();
               let exp = new Date(today);
               exp.setDate(today.getDate() + 60);

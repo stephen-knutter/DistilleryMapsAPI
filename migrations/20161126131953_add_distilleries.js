@@ -16,6 +16,7 @@ exports.up = function(knex, Promise) {
     t.string('region');
     t.string('hood');
     t.string('state');
+    t.string('state_full');
     t.timestamp('created_at').notNullable().defaultTo(knex.fn.now());
     t.timestamp('updated_at').notNullable().defaultTo(knex.fn.now());
   })

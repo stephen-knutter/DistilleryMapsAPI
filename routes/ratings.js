@@ -9,14 +9,12 @@ router.get('/users/:userSlug', (req, res, next) => {
   let userSlug = req.params.userSlug;
   userModel.getUserIdFromSlug(userSlug)
     .then((response) => {
-      console.log(response[0].id);
       return response[0].id
     })
     .then((userID) => {
       return ratingModel.getUserRatingsById(userID);
     })
     .then((userRatings) => {
-      console.log(userRatings);
       res.json({ratings: userRatings});
     })
     .catch((err) => {
