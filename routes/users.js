@@ -275,7 +275,7 @@ router.put('/update', (req, res, next) => {
         if (Object.keys(checks).length > 0) {
           res.status(500).send({error: checks});
         } else {
-          let userSlug = slug(username);
+          let userSlug = slug(username.toLowerCase());
 
           if (password) {
             userModel.updateUserWithPassword(user.id, username, userSlug, email, password)
