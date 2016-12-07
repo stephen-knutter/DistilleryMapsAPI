@@ -90,8 +90,8 @@ exports.seed = function(knex, Promise) {
             state: 'Georgia',
             abbr: 'GA',
             slug: 'georgia',
-            lat: 32.592527,
-            lng: -83.605957,
+            lat: 33.74879,
+            lng: -84.387832,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -108,8 +108,8 @@ exports.seed = function(knex, Promise) {
             state: 'Idaho',
             abbr: 'ID',
             slug: 'idaho',
-            lat: 19.769127,
-            lng: -155.418091,
+            lat: 43.741212,
+            lng: -115.488281,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -117,8 +117,8 @@ exports.seed = function(knex, Promise) {
             state: 'Illinois',
             abbr: 'IL',
             slug: 'illinois',
-            lat: 40.085952,
-            lng: -89.055176,
+            lat: 41.877981,
+            lng: -87.629571,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -144,8 +144,8 @@ exports.seed = function(knex, Promise) {
             state: 'Kansas',
             abbr: 'KS',
             slug: 'kansas',
-            lat: 38.349734,
-            lng: -98.151855,
+            lat: 38.981701,
+            lng: -94.670691,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -153,8 +153,8 @@ exports.seed = function(knex, Promise) {
             state: 'Kentucky',
             abbr: 'KY',
             slug: 'kentucky',
-            lat: 37.273506,
-            lng: -84.70459,
+            lat: 38.249568,
+            lng: -85.757561,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -162,8 +162,8 @@ exports.seed = function(knex, Promise) {
             state: 'Louisiana',
             abbr: 'LA',
             slug: 'louisiana',
-            lat: 30.948758,
-            lng: -92.614746,
+            lat: 29.946378,
+            lng: -90.073471,
             country_code: 'US'
           }),
         knex('distillery_locations').insert({
@@ -171,8 +171,8 @@ exports.seed = function(knex, Promise) {
             state: 'Maine',
             abbr: 'ME',
             slug: 'maine',
-            lat: 45.12732,
-            lng: -69.060059,
+            lat: 43.913433,
+            lng: -69.967632,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 20,
@@ -227,32 +227,32 @@ exports.seed = function(knex, Promise) {
               state: 'Montana',
               abbr: 'MT',
               slug: 'montana',
-              lat: 46.596147,
-              lng: -110.456543,
+              lat: 47.69025,
+              lng: -114.162197,
               country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 27,
             state: 'Nebraska',
             abbr: 'NE',
             slug: 'nebraska',
-            lat: 41.351557,
-            lng: -99.645996,
+            lat: 41.252165,
+            lng: -95.997806,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 28,
             state: 'Nevada',
             abbr: 'NV',
             slug: 'nevada',
-            lat: 38.659242,
-            lng: -116.38916,
+            lat: 36.169897,
+            lng: -115.139594,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 29,
             state: 'New Hampshire',
             abbr: 'NH',
             slug: 'new-hampshire',
-            lat: 38.659242,
-            lng: -116.38916,
+            lat: 43.121993,
+            lng: -71.01202,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 30,
@@ -275,8 +275,8 @@ exports.seed = function(knex, Promise) {
             state: 'New York',
             abbr: 'NY',
             slug: 'new-york',
-            lat: 42.366154,
-            lng: -74.816895,
+            lat: 40.712415,
+            lng: -74.005601,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 33,
@@ -291,8 +291,8 @@ exports.seed = function(knex, Promise) {
             state: 'North Dakota',
             abbr: 'ND',
             slug: 'north-dakota',
-            lat: 35.43326,
-            lng: -79.211426,
+            lat: 46.808082,
+            lng: -100.783617,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 35,
@@ -387,16 +387,16 @@ exports.seed = function(knex, Promise) {
             state: 'Virginia',
             abbr: 'VA',
             slug: 'virginia',
-            lat: 37.308468,
-            lng: -78.42041,
+            lat: 38.472074,
+            lng: -77.99572,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 47,
             state: 'Washington',
             abbr: 'WA',
             slug: 'washington',
-            lat: 46.957293,
-            lng: -120.080566,
+            lat: 47.605776,
+            lng: -122.332098,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 48,
@@ -411,15 +411,15 @@ exports.seed = function(knex, Promise) {
             state: 'Wisconsin',
             abbr: 'WI',
             slug: 'wisconsin',
-            lat: 44.378349,
-            lng: -89.934082,
+            lat: 43.038662,
+            lng: -87.906246,
             country_code: 'US'}),
         knex('distillery_locations').insert({
             id: 50,
             state: 'Wyoming',
             abbr: 'WY',
-            lat: 42.62537,
-            lng: -107.775879,
+            lat: 43.80434,
+            lng: -108.181343,
             slug: 'wyoming',
             country_code: 'US'})
       ]);
