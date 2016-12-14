@@ -145,8 +145,6 @@ router.post('/login', (req, res, next) => {
     .then((user) => {
       if (Object.keys(user).length > 0) {
         let theUser = user[0];
-        console.log('user: ', theUser);
-        console.log('password: ', password, 'hash: ', theUser.password_digest);
         let passwordCheck = userModel.checkPassword(password, theUser.password_digest);
         if (passwordCheck) {
           return theUser;

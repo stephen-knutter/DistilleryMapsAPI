@@ -1344,7 +1344,7 @@ exports.seed = function(knex, Promise) {
           zip:  97365,
           email: 'example@mail.com',
           picture: 'distill-placeholder.png',
-          phone: '555-555-5555',
+          phone: '415-362-7880',
           website: 'www.roguespirits.com',
           products: 'Rum, Whiskey, Gin',
           region: 'Newport',
