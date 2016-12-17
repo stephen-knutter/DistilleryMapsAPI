@@ -13,6 +13,14 @@ query = {
 
   getRatingById: (ratingID) => {
     return knex('ratings')
+      .select('ratings.id',
+              'ratings.distill_id',
+              'ratings.rating',
+              'ratings.comment',
+              'ratings.created_at',
+              'users.username',
+              'users.slug',
+              'users.profile_pic')
       .innerJoin('users', 'ratings.user_id', 'users.id')
       .innerJoin('distilleries', 'ratings.distill_id', 'distilleries.id')
       .orderBy('ratings.created_at', 'desc')
