@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const fs = require('fs');
+const gm = require('gm');
 
 const slug = require('slug');
 const validator = require('validator');
@@ -46,6 +47,15 @@ router.get('/favorites/:userSlug', (req, res, next) => {
 });
 
 router.post('/photo', (req, res, next) => {
+  // let x = req.body.x;
+  // let y = req.body.y;
+  // let width = req.body.width;
+  // let height = req.body.height;
+  //
+
+  console.log('body: ', req.body);
+  console.log('files: ', req.files);
+
   let authorized = req.headers.authorization;
   if (authorized) {
     let decoded = helpers.getDecodedTokenFromToken(authorized);
@@ -100,6 +110,24 @@ router.post('/photo', (req, res, next) => {
           if (err) {
             res.status(500).send({error: {"Ooops": "something went wrong"}});
           } else {
+            let cropFullFilePath = filePath + 'profile-' + newFilename;
+            console.log('cropping');
+            let profilePicCrop =
+              gm(fullFilepath)
+                .resize(128, 128, '!')
+                .write(cropFullFilePath, (err) => {
+                  if (!err) console.log('cropped!');
+                  console.log('done!');
+                });
+            let smallCropFullFilePath = filePath + 'small-' + newFilename;
+            let smallProfilePicCrop =
+              gm(fullFilepath)
+                .resize(26, 26, '!')
+                .write(smallCropFullFilePath, (err) => {
+                  if (!err) console.log('cropped!');
+                  console.log('done!');
+                });
+
             userModel.updatePhoto(user.id, newFilename)
               .then((data) => {
                 user.profile_pic = newFilename;
