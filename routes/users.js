@@ -47,15 +47,6 @@ router.get('/favorites/:userSlug', (req, res, next) => {
 });
 
 router.post('/photo', (req, res, next) => {
-  // let x = req.body.x;
-  // let y = req.body.y;
-  // let width = req.body.width;
-  // let height = req.body.height;
-  //
-
-  console.log('body: ', req.body);
-  console.log('files: ', req.files);
-
   let authorized = req.headers.authorization;
   if (authorized) {
     let decoded = helpers.getDecodedTokenFromToken(authorized);
