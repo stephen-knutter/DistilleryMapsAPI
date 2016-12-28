@@ -90,34 +90,45 @@ router.post('/photo', (req, res, next) => {
 
         let newFilename = date + '-' + 'distillery-maps' + extension;
 
-        let filePath = __dirname + '/../public/images/users/'+user.id+'/';
+        let filePath = __dirname + '/../public/images/users/' + user.id + '/';
 
         if (!fs.existsSync(filePath)) {
           fs.mkdirSync(filePath);
         }
 
-        let fullFilepath = filePath + newFilename;
+        if (!fs.existsSync(filePath + 'profile/')) {
+          fs.mkdirSync(filePath + 'profile/');
+        }
+
+        if (!fs.existsSync(filePath + 'profile/original/')) {
+          fs.mkdirSync(filePath + 'profile/original/');
+        }
+
+        if (!fs.existsSync(filePath + 'profile/full/')) {
+          fs.mkdirSync(filePath + 'profile/full/');
+        }
+
+        if (!fs.existsSync(filePath + 'profile/small/')) {
+          fs.mkdirSync(filePath + 'profile/small/');
+        }
+
+        let fullFilepath = filePath + 'profile/original/' + newFilename;
         photoFile.mv(fullFilepath, (err) => {
           if (err) {
             res.status(500).send({error: {"Ooops": "something went wrong"}});
           } else {
-            let cropFullFilePath = filePath + 'profile-' + newFilename;
+            let cropFullFilePath = filePath + 'profile/full/profile-' + newFilename;
             let profilePicCrop =
               gm(fullFilepath)
                 .resize(128, 128, '!')
                 .write(cropFullFilePath, (err) => {
-                  if (!err) {
-                    res.status(500).send({error: {"Error": "cropping photo"}});
-                  }
                 });
-            let smallCropFullFilePath = filePath + 'small-' + newFilename;
+
+            let smallCropFullFilePath = filePath + 'profile/small/small-' + newFilename;
             let smallProfilePicCrop =
               gm(fullFilepath)
                 .resize(26, 26, '!')
                 .write(smallCropFullFilePath, (err) => {
-                  if (!err) {
-                    res.status(500).send({error: {"Error": "cropping photo"}});
-                  }
                 });
 
             userModel.updatePhoto(user.id, newFilename)
