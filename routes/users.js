@@ -102,21 +102,22 @@ router.post('/photo', (req, res, next) => {
             res.status(500).send({error: {"Ooops": "something went wrong"}});
           } else {
             let cropFullFilePath = filePath + 'profile-' + newFilename;
-            console.log('cropping');
             let profilePicCrop =
               gm(fullFilepath)
                 .resize(128, 128, '!')
                 .write(cropFullFilePath, (err) => {
-                  if (!err) console.log('cropped!');
-                  console.log('done!');
+                  if (!err) {
+                    res.status(500).send({error: {"Error": "cropping photo"}});
+                  }
                 });
             let smallCropFullFilePath = filePath + 'small-' + newFilename;
             let smallProfilePicCrop =
               gm(fullFilepath)
                 .resize(26, 26, '!')
                 .write(smallCropFullFilePath, (err) => {
-                  if (!err) console.log('cropped!');
-                  console.log('done!');
+                  if (!err) {
+                    res.status(500).send({error: {"Error": "cropping photo"}});
+                  }
                 });
 
             userModel.updatePhoto(user.id, newFilename)
