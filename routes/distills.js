@@ -63,10 +63,8 @@ router.post('/unfavorite', (req, res, next) => {
 
 router.get('/distill/:distillSlug', (req, res, next) => {
   let distillSlug = req.params.distillSlug;
-  console.log('slug: ', distillSlug);
   distilleryStoreModel.getDistillBySlug(distillSlug)
     .then((distillery) => {
-      console.log('distillery: ', distillery[0]);
       res.json({distilleryProfile: distillery[0]});
     })
     .catch((err) => {
@@ -77,7 +75,7 @@ router.get('/distill/:distillSlug', (req, res, next) => {
 router.get('/distill/following/:distillSlug', (req, res, next) => {
   let distillSlug = req.params.distillSlug;
   let authorized = req.headers.authorization;
-
+  console.log('authorized from distillery: ', authorized);
   if (authorized && authorized !== undefined) {
     let userID = helpers.getUserIdFromToken(authorized);
     if (userID) {

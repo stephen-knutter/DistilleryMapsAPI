@@ -15,7 +15,9 @@ const userModel = require('../model/users');
 
 router.get('/user', (req, res, next) => {
   let authorized = req.headers.authorization;
+  console.log('authorized from user: ', authorized);
   if (authorized === undefined) {
+    res.json([]);
     return;
   }
   if (authorized) {
