@@ -18,7 +18,9 @@ router.get('/user', (req, res, next) => {
 
   if (authorized && authorized !== undefined) {
     let theToken = authorized.split(' ')[1];
+    console.log('the token: ', theToken);
     let decoded = jwt.verify(theToken, process.env.SECRET);
+    console.log('Decoded: ', decoded);
     if (decoded) {
       res.json(decoded);
     }
