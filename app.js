@@ -1,6 +1,13 @@
 'use-strict';
 
-if (process.env.NODE_ENV != 'production') require('dotenv').config({path: __dirname + '/.env'});
+require('dotenv').config({path: __dirname + '/.env'});
+
+console.log('node env: ', process.env.NODE_ENV);
+fs.readdir(__dirname, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+})
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
