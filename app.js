@@ -1,6 +1,7 @@
 'use-strict';
 
-require('dotenv').config({path: '../.env'});
+require('dotenv').config({path: __dirname + '/.env'});
+console.log('dirname: ', __dirname + '/.env');
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
