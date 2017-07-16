@@ -15,15 +15,12 @@ const userModel = require('../model/users');
 
 router.get('/user', (req, res, next) => {
   let authorized = req.headers.authorization;
-  console.log('authorized from user: ', authorized);
-  if (authorized === undefined) {
-    res.json([]);
-    return;
-  }
-  if (authorized) {
+
+  if (authorized && authorized !== undefined) {
     let theToken = authorized.split(' ')[1];
     let decoded = jwt.verify(theToken, process.env.SECRET);
     if (decoded) {
+      console.log('!!!decoded:!!!', decoded);
       res.json(decoded);
     }
   }
