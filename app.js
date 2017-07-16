@@ -7,7 +7,7 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 console.log('node env: ', process.env.NODE_ENV == 'production');
-fs.readdir(__dirname, (err, files) => {
+fs.readdir('../' + __dirname, (err, files) => {
   files.forEach(file => {
     console.log(file);
   });
