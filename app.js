@@ -1,6 +1,10 @@
 'use-strict';
 const fs = require('fs');
-require('dotenv').config({path: __dirname + '/.env'});
+
+if (process.env.NODE_ENV != 'production') {
+  console.log('SHOULE NOT BE HERE');
+  require('dotenv').config({path: __dirname + '/.env'});
+}
 
 console.log('node env: ', process.env.NODE_ENV == 'production');
 fs.readdir(__dirname, (err, files) => {
