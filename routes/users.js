@@ -15,6 +15,9 @@ const userModel = require('../model/users');
 
 router.get('/user', (req, res, next) => {
   let authorized = req.headers.authorization;
+  if (authorized === undefined) {
+    return;
+  }
   if (authorized) {
     let theToken = authorized.split(' ')[1];
     let decoded = jwt.verify(theToken, process.env.SECRET);
@@ -97,7 +100,7 @@ router.post('/photo', (req, res, next) => {
         }
 
         if (!fs.existsSync(filePath + 'profile/')) {
-          fs.mkdirSync(filePath + 'profile/');
+          fs.mkdirSync()
         }
 
         if (!fs.existsSync(filePath + 'profile/original/')) {
@@ -105,7 +108,7 @@ router.post('/photo', (req, res, next) => {
         }
 
         if (!fs.existsSync(filePath + 'profile/full/')) {
-          fs.mkdirSync(filePath + 'profile/full/');
+          fs.mkdirSync(filePath + 'profile/original/');
         }
 
         if (!fs.existsSync(filePath + 'profile/small/')) {
@@ -122,6 +125,9 @@ router.post('/photo', (req, res, next) => {
               gm(fullFilepath)
                 .resize(128, 128, '!')
                 .write(cropFullFilePath, (err) => {
+                  if (!err) {
+                    res.status(500).send({error: {"Error": "cropping photo"}});
+                  }
                 });
 
             let smallCropFullFilePath = filePath + 'profile/small/small-' + newFilename;
@@ -129,6 +135,9 @@ router.post('/photo', (req, res, next) => {
               gm(fullFilepath)
                 .resize(26, 26, '!')
                 .write(smallCropFullFilePath, (err) => {
+                  if (!err) {
+                    res.status(500).send({error: {"Error": "cropping photo"}});
+                  }
                 });
 
             userModel.updatePhoto(user.id, newFilename)
@@ -234,7 +243,7 @@ router.post('/register', (req, res, next) => {
   //CHECK USERNAME
   userModel.checkSlug(userSlug)
     .then((doesExist) => {
-      if (doesExist) {
+      if (doesExist.length) {
         checks.Username = "already exists";
       }
       return;
@@ -243,7 +252,7 @@ router.post('/register', (req, res, next) => {
       return userModel.checkEmail(email);
     })
     .then((doesExist) => {
-      if (doesExist) {
+      if (doesExist.length) {
         checks.Email = "has been registered";
       }
       return;
