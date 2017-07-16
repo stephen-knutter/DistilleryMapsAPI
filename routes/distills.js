@@ -75,7 +75,8 @@ router.get('/distill/:distillSlug', (req, res, next) => {
 router.get('/distill/following/:distillSlug', (req, res, next) => {
   let distillSlug = req.params.distillSlug;
   let authorized = req.headers.authorization;
-  
+  res.json({following: false});
+  return;
   if (authorized && authorized !== undefined) {
     let userID = helpers.getUserIdFromToken(authorized);
     if (userID) {

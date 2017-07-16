@@ -16,12 +16,11 @@ const userModel = require('../model/users');
 router.get('/user', (req, res, next) => {
   let authorized = req.headers.authorization;
 
+  let notDecoded = false;
   if (authorized && authorized !== undefined) {
     let theToken = authorized.split(' ')[1];
-    console.log('the token: ', theToken);
     let decoded = jwt.verify(theToken, process.env.SECRET);
-    console.log('Decoded: ', decoded);
-    if (decoded) {
+    if (decoded && notDecoded) {
       res.json(decoded);
     }
   }
