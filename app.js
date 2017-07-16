@@ -2,7 +2,7 @@
 const fs = require('fs');
 require('dotenv').config({path: __dirname + '/.env'});
 
-console.log('node env: ', process.env.NODE_ENV);
+console.log('node env: ', process.env.NODE_ENV != 'production');
 fs.readdir(__dirname, (err, files) => {
   files.forEach(file => {
     console.log(file);
